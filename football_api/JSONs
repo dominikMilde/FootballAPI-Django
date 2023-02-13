@@ -1,0 +1,14 @@
+{
+"name":"Croatia",
+"name_short":"CRO",
+"population": 3892135,
+"currency": "HRK"
+}
+
+{
+"first_name": "Luka",
+"last_name": "Modrić",
+"d_o_b": "1981-02-24",
+"position": "MID",
+"country": 1
+}

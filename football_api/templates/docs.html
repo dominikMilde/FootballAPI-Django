@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+</head>
+<body>
+    <h1>Docs - football API</h1>
+    <hr />
+
+    <h3>RESOURCE Country</h3>
+
+    <b> GET <i>/api/country/{id}/</i></b> --> returns info about country with given id, 200 when OK, 404 when country with id doesn't exist
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%; margin-bottom: 30px;">
+        <p>GET /api/country/1/ </p>
+         <p> returns </p>
+         <pre>
+                {
+                    "id": 1,
+                    "name": "Croatia",
+                    "name_short": "CRO",
+                    "population": 3892135,
+                    "currency": "HRK"
+                }
+         </pre>
+    </div>
+
+    <b> PUT <i>/api/country/{id}/</i></b> --> updates info about country with given id, 200 when OK, 404 when country with id doesn't exist, 400 when wrong arguments passed
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%; margin-bottom: 30px;">
+        <p>PUT /api/country/1/ </p>
+         <p> recieves </p>
+         <pre>
+                {
+                    "name": "Croatia",
+                    "name_short": "CRO",
+                    "population": 3791252,
+                    "currency": "EUR"
+                }
+         </pre>
+    </div>
+
+    <b> DELETE <i>/api/country/{id}/</i></b> --> deletes info country with given id, 204 when OK, 404 when country with id doesn't exist
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px; ">
+        <p>DELETE /api/country/1/ </p>
+         <p> return </p>
+         <pre>
+                {
+                    "error": "Country doesnt exist"
+                }
+         </pre>
+    </div>
+
+    <b> POST <i>/api/country/</i></b> --> creates country with info given in body, 200 when OK, 400 when invalid info given. Creates ID on backend.
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px;">
+        <p>POST /api/country/ </p>
+         <p> recieves </p>
+         <pre>
+                {
+                    "name":"Croatia",
+                    "name_short":"CRO",
+                    "population": 3892135,
+                    "currency": "HRK"
+                }
+
+In case of insufficient info, returns hint:
+
+                {
+                    "population": [
+                        "This field is required."
+                    ]
+                }
+         </pre>
+    </div>
+
+    <b> GET <i>/api/country/list/</i></b> --> gets list with all stored countries, 200 when OK
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px;">
+        <p>GET /api/country/list/ </p>
+         <p> returns </p>
+         <pre>
+                [
+                    {
+                        "id": 1,
+                        "name": "Croatia",
+                        "name_short": "CRO",
+                        "population": 3892135,
+                        "currency": "HRK"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Germany",
+                        "name_short": "DE",
+                        "population": 83130652,
+                        "currency": "EUR"
+                    }
+                ]
+         </pre>
+    </div>
+<hr />
+
+
+
+
+
+
+    <h3>RESOURCE Player</h3>
+
+    <b> GET <i>/api/player/{id}/</i></b> --> returns info about player with given id, 200 when OK, 404 when player with id doesn't exist
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%; margin-bottom: 30px;">
+        <p>GET /api/player/1/ </p>
+         <p> returns </p>
+         <pre>
+                {
+                    "first_name": "Luka",
+                    "last_name": "Modrić",
+                    "d_o_b": "1981-02-24",
+                    "position": "MID",
+                    "country": {
+                        "id": 1,
+                        "name": "Croatia",
+                        "name_short": "CRO",
+                        "population": 3892135,
+                        "currency": "HRK"
+                    }
+                }
+         </pre>
+    </div>
+
+    <b> PUT <i>/api/player/{id}/</i></b> --> updates info about player with given id, 200 when OK, 404 when player with id doesn't exist, 400 when wrong arguments passed
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%; margin-bottom: 30px;">
+        <p>PUT /api/player/1/ </p>
+         <p> recieves </p>
+         <pre>
+                {
+                    "first_name": "Luka",
+                    "last_name": "Modrić",
+                    "d_o_b": "1981-02-24",
+                    "position": "MID",
+                    "country": 2
+                }
+         </pre>
+    </div>
+
+    <b> DELETE <i>/api/player/{id}/</i></b> --> deletes player country with given id, 204 when OK, 404 when player with id doesn't exist
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px; ">
+        <p>DELETE /api/player/1/ </p>
+         <p> return </p>
+         <pre>
+                {
+                    "error": "Player doesnt exist"
+                }
+         </pre>
+    </div>
+
+    <b> POST <i>/api/player/</i></b> --> creates player with info given in body, 200 when OK, 400 when invalid info given. Creates ID on backend.
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px;">
+        <p>POST /api/country/ </p>
+         <p> recieves </p>
+         <pre>
+                {
+                    "first_name": "Luka",
+                    "last_name": "Modrić",
+                    "d_o_b": "1981-02-24",
+                    "position": "MID",
+                    "country": 1
+                }
+
+In case of insufficient info, returns hint:
+
+                {
+                    "position": [
+                        "This field is required."
+                    ]
+                }
+         </pre>
+    </div>
+
+    <b> GET <i>/api/player/list/</i></b> --> gets list with all stored players, 200 when OK
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%;  margin-bottom: 30px;">
+        <p>GET /api/player/list/ </p>
+         <p> returns </p>
+         <pre>
+                [
+                    {
+                        "first_name": "Luka",
+                        "last_name": "Modrić",
+                        "d_o_b": "1981-02-24",
+                        "position": "MID",
+                        "country": {
+                            "id": 1,
+                            "name": "Croatia",
+                            "name_short": "CRO",
+                            "population": 3892135,
+                            "currency": "HRK"
+                        }
+                    },
+                    {
+                        "first_name": "Dominik",
+                        "last_name": "Livaković",
+                        "d_o_b": "1998-03-21",
+                        "position": "GK",
+                        "country": {
+                            "id": 1,
+                            "name": "Croatia",
+                            "name_short": "CRO",
+                            "population": 3892135,
+                            "currency": "HRK"
+                        }
+                    },
+                    {
+                        "first_name": "Manuel",
+                        "last_name": "Neuer",
+                        "d_o_b": "1988-11-11",
+                        "position": "GK",
+                        "country": {
+                            "id": 2,
+                            "name": "Germany",
+                            "name_short": "DE",
+                            "population": 83130652,
+                            "currency": "EUR"
+                        }
+                    }
+                ]
+         </pre>
+    </div>
+
+
+    <hr>
+    <h3>Nested</h3>
+
+    <b> GET <i>/api/country/{id}/player/</i></b> --> returns list of players from country with given id, 200 when OK, 404 when country with id doesn't exist
+    <div style="margin-top:15px">
+        ex.
+    </div>
+    <div style="background-color:lightgrey; width: 50%; margin-bottom: 30px;">
+        <p>GET /api/country/1/player/ </p>
+         <p> returns </p>
+         <pre>
+                [
+                    {
+                        "first_name": "Luka",
+                        "last_name": "Modrić",
+                        "d_o_b": "1981-02-24",
+                        "position": "MID",
+                        "country": {
+                            "id": 1,
+                            "name": "Croatia",
+                            "name_short": "CRO",
+                            "population": 3892135,
+                            "currency": "HRK"
+                        }
+                    },
+                    {
+                        "first_name": "Dominik",
+                        "last_name": "Livaković",
+                        "d_o_b": "1998-03-21",
+                        "position": "GK",
+                        "country": {
+                            "id": 1,
+                            "name": "Croatia",
+                            "name_short": "CRO",
+                            "population": 3892135,
+                            "currency": "HRK"
+                        }
+                    }
+                ]
+         </pre>
+    </div>
+</body>
+</html>
